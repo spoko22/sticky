@@ -14,16 +14,28 @@ export default class Container extends React.Component<>{
 
     componentWillUnmount(){
         window.removeEventListener('scroll', this.handleScroll);
+        window.removeEventListener('resize', this.handleResize);
     }
 
     componentDidMount() {
         window.addEventListener('scroll', this.handleScroll);
+        window.addEventListener('resize', this.handleResize);
         let bounds = ReactDOM.findDOMNode(this).getBoundingClientRect();
         console.log(bounds);
         this.setState({
             ...this.state,
             bounds,
         })
+    }
+
+    handleResize = (event) => {
+        console.log('resize');
+        let bounds = ReactDOM.findDOMNode(this).getBoundingClientRect();
+        this.setState({
+            ...this.state,
+            event,
+            bounds,
+        });
     }
 
     handleScroll = (event) => {

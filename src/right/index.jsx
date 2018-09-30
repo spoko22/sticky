@@ -13,7 +13,7 @@ export default class Right extends React.Component {
         const { x, y, width, height, top, right, bottom, left } = containerBounds;
 
         return (
-            <FloatingRightWrapper y={y}>
+            <FloatingRightWrapper y={y} right={right-width} width={width*0.4}>
                 <Paragraph>Right</Paragraph>
                 <Paragraph>{JSON.stringify(containerBounds)}</Paragraph>
             </FloatingRightWrapper>

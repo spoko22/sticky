@@ -13,7 +13,8 @@ export const Paragraph = styled.p`
 export const FloatingRightWrapper = styled(RightWrapper)`
     position: fixed;
     top: 0;
-    right: 0;
+    right: ${({right}) => right}px;
+    width: ${({width}) => width}px;
     transform: translateY(${({y}) => y > 0 ? y: 0}px);
     -webkit-transform: translateY(${({y}) => y > 0 ? y: 0}px);
 `
